@@ -20,7 +20,7 @@
     },
     {
       "action": "runCommand",
-      "command": "source add-composer-script.sh {{ vendor_name }} {{ package_name }}"
+      "command": "source {{ template_dir }}/add-composer-script.sh {{ vendor_name }} {{ package_name }}"
     }
   ]
 }
