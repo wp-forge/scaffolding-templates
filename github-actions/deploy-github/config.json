@@ -1,0 +1,10 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "deploy-github.yml",
+      "to": ".github/workflows/deploy-github.yml",
+      "relativeTo": "projectRoot"
+    }
+  ]
+}

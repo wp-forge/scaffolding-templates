@@ -1,0 +1,26 @@
+{
+  "prompts": [
+    {
+      "message": "What is the vendor name?",
+      "name": "vendor_name",
+      "type": "input"
+    },
+    {
+      "message": "What is the package name?",
+      "name": "package_name",
+      "type": "input"
+    }
+  ],
+  "directives": [
+    {
+      "action": "copy",
+      "from": "wp-i18n.yml",
+      "to": ".github/workflows/wp-i18n.yml",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "source add-composer-script.sh {{ vendor_name }} {{ package_name }}"
+    }
+  ]
+}

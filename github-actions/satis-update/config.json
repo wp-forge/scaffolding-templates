@@ -1,0 +1,23 @@
+{
+  "prompts": [
+    {
+      "message": "Vendor name",
+      "name": "vendor_name",
+      "type": "input"
+    }
+  ],
+  "directives": [
+    {
+      "action": "copy",
+      "from": "satis-update.yml",
+      "to": ".github/workflows/satis-update.yml",
+      "relativeTo": "projectRoot"
+    }
+  ],
+  "messages": [
+    {
+      "type": "warning",
+      "message": "Please setup the WEBHOOK_TOKEN secret on GitHub"
+    }
+  ]
+}

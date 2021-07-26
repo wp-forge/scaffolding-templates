@@ -1,0 +1,26 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "deploy-wp-assets.yml",
+      "to": ".github/workflows/deploy-wp-assets.yml",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "deploy-wp-code.yml",
+      "to": ".github/workflows/deploy-wp-code.yml",
+      "relativeTo": "projectRoot"
+    }
+  ],
+  "messages": [
+    {
+      "type": "warning",
+      "message": "Please setup the SVN_PASSWORD secret on GitHub"
+    },
+    {
+      "type": "warning",
+      "message": "Please setup the SVN_USERNAME secret on GitHub"
+    }
+  ]
+}

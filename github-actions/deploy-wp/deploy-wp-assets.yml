@@ -1,0 +1,22 @@
+name: Plugin asset/readme update
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .wporg/*
+      - readme.txt
+jobs:
+  deploy-wp-assets:
+    name: Deploy WP Assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: WordPress.org plugin asset/readme update
+        uses: bluehost/wp-plugin-readme-assets-updater@master
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          ASSETS_DIR: .wporg

@@ -1,0 +1,10 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "lint-yml.yml",
+      "to": ".github/workflows/lint-yml.yml",
+      "relativeTo": "projectRoot"
+    }
+  ]
+}

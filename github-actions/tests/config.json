@@ -1,0 +1,10 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "tests.yml",
+      "to": ".github/workflows/tests.yml",
+      "relativeTo": "projectRoot"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+name: Lint JS
+on:
+  push:
+    paths:
+      - '**.js'
+    pull_request:
+      types: [ opened, edited, synchronize, reopened, ready_for_review ]
+      paths:
+        - '**.js'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+jobs:
+  lint-js:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Get changed files
+        uses: technote-space/get-diff-action@v3
+        with:
+          SUFFIX_FILTER: .js
+
+      - name: Run ESLint
+        run: eslint ${{ env.GIT_DIFF }}
+        if: "!! env.GIT_DIFF"
