@@ -1,0 +1,48 @@
+{
+  "prompts": [
+    {
+      "message": "What is the vendor name?",
+      "name": "vendor_name",
+      "type": "input"
+    },
+    {
+      "message": "What is the package name?",
+      "name": "package_name",
+      "type": "input"
+    }
+  ],
+  "directives": [
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/deploy-github"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/deploy-wp"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/lint-js"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/lint-php"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/lint-yml"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/satis-update"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/tests"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make github-actions/wp-i18n"
+    }
+  ]
+}
