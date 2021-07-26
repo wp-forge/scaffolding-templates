@@ -1,3 +1,4 @@
+{{=<% %>=}}
 name: Trigger Satis Build
 
 on:
@@ -25,7 +26,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.WEBHOOK_TOKEN }}
-          repository: {{ vendor_name }}/satis
+          repository: <% vendor_name %>/satis
           event-type: 'Trigger Satis Build'
           client-payload: >-
             {

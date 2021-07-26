@@ -1,3 +1,4 @@
+{{=<% %>=}}
 name: Lint YML
 on:
   push:

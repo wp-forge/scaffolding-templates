@@ -1,3 +1,4 @@
+{{=<% %>=}}
 name: WP Internationalization
 on:
   push:
