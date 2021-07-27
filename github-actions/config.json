@@ -14,35 +14,35 @@
   "directives": [
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/deploy-github"
+      "command": "{{ base_command }} make github-actions/deploy-github"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/deploy-wp"
+      "command": "{{ base_command }} make github-actions/deploy-wp"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/lint-js"
+      "command": "{{ base_command }} make github-actions/lint-js"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/lint-php"
+      "command": "{{ base_command }} make github-actions/lint-php"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/lint-yml"
+      "command": "{{ base_command }} make github-actions/lint-yml"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/satis-update"
+      "command": "{{ base_command }} make github-actions/satis-update"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/tests"
+      "command": "{{ base_command }} make github-actions/tests"
     },
     {
       "action": "runCommand",
-      "command": "wp forge make github-actions/wp-i18n"
+      "command": "{{ base_command }} make github-actions/wp-i18n"
     }
   ]
 }
