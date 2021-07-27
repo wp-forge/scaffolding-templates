@@ -1,6 +1,6 @@
 # WP Forge Scaffolding Templates
 
-This repository containers the default scaffolding templates for the `wp forge` command provided by the [`wp-forge/wp-cli-forge-command`](https://github.com/wp-forge/wp-cli-forge-command) package.
+This repository contains the default scaffolding templates for the `wp forge` command provided by the [`wp-forge/wp-cli-forge-command`](https://github.com/wp-forge/wp-cli-forge-command) package.
 
 ## Usage
 
