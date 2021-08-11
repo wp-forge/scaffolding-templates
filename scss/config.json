@@ -1,0 +1,13 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": ".",
+      "to": "source/scss",
+      "relativeTo": "projectRoot",
+      "excludes": [
+        "config.json"
+      ]
+    }
+  ]
+}

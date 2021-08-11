@@ -1,0 +1,8 @@
+@import "settings";
+
+.is-root-container {
+  @import "generic";
+  @import "elements";
+  @import "components";
+  @import "plugins";
+}

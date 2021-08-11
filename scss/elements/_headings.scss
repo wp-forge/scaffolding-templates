@@ -1,0 +1,35 @@
+%heading {
+  color: $color-black;
+  font-family: $font-family-heading;
+  font-weight: bold;
+}
+
+h1 {
+  @extend %text-xl;
+  @extend %heading;
+}
+
+h2 {
+  @extend %text-lg;
+  @extend %heading;
+}
+
+h3 {
+  @extend %text-md;
+  @extend %heading;
+}
+
+h4 {
+  @extend %text-sm;
+  @extend %heading;
+}
+
+h5 {
+  @extend %text-sm;
+  @extend %heading;
+}
+
+h6 {
+  @extend %text-sm;
+  @extend %heading;
+}
