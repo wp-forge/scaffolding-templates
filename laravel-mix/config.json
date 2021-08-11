@@ -1,0 +1,48 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": ".",
+      "to": ".",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp forge make scss"
+    },
+    {
+      "action": "runCommand",
+      "command": "npm install laravel-mix --save-dev"
+    },
+    {
+      "action": "runCommand",
+      "command": "npm install sass-loader@^12.1.0 sass --save-dev --legacy-peer-deps"
+    }
+  ],
+  "messages": [
+    {
+      "type": "warning",
+      "message": "Please add the following scripts to your package.json file:"
+    },
+    {
+      "type": "warning",
+      "message": "\"build\": \"npm run build:prod\","
+    },
+    {
+      "type": "warning",
+      "message": "\"build:dev\": \"npx mix\","
+    },
+    {
+      "type": "warning",
+      "message": "\"build:prod\": \"npx mix --production\","
+    },
+    {
+      "type": "warning",
+      "message": "\"start\": \"npm run watch\","
+    },
+    {
+      "type": "warning",
+      "message": "\"watch\": \"npx mix watch\""
+    }
+  ]
+}
