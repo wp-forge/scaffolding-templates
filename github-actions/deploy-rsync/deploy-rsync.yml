@@ -1,0 +1,74 @@
+{{=<% %>=}}
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache Composer vendor directory
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Node version
+        run: node --version
+
+      - name: NPM version
+        run: npm --version
+
+      - name: PHP Version
+        run: php --version
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: npm install
+        run: npm install && npm run build
+
+      - name: Install PHP dependencies
+        run: composer install --no-progress --no-dev --optimize-autoloader
+
+      - name: Deploy to server
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
+        with:
+          flags: '-acvz --delete-after --force'
+          options: '--include-from=.distinclude --exclude-from=.distignore --chmod=D755,F644 --chown=${{ secrets.SERVER_USERNAME }}:${{ secrets.SERVER_USERNAME }}'
+          ssh_options: '-p ${{ secrets.SERVER_PORT }}'
+          src: './'
+          dest: '${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }}:${{ secrets.SERVER_PATH }}'

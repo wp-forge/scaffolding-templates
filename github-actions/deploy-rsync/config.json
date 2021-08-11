@@ -1,0 +1,32 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "deploy-rsync.yml",
+      "to": ".github/workflows/deploy-rsync.yml",
+      "relativeTo": "projectRoot"
+    }
+  ],
+  "messages": [
+    {
+      "type": "warning",
+      "message": "Please setup the SERVER_SSH_PRIVATE_KEY secret on GitHub"
+    },
+    {
+      "type": "warning",
+      "message": "Please setup the SERVER_USERNAME secret on GitHub"
+    },
+    {
+      "type": "warning",
+      "message": "Please setup the SERVER_IP secret on GitHub"
+    },
+    {
+      "type": "warning",
+      "message": "Please setup the SERVER_PORT secret on GitHub"
+    },
+    {
+      "type": "warning",
+      "message": "Please setup the SERVER_PATH secret on GitHub"
+    }
+  ]
+}
