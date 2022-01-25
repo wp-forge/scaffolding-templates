@@ -8,15 +8,15 @@
     },
     {
       "action": "runCommand",
-      "command": "wp forge make scss"
+      "command": "wp {{ base_command }} make scss"
     },
     {
       "action": "runCommand",
-      "command": "npm install laravel-mix --save-dev"
+      "command": "npm install laravel-mix --save-dev --prefix={{ projectRoot }}"
     },
     {
       "action": "runCommand",
-      "command": "npm install sass-loader@^12.1.0 sass --save-dev --legacy-peer-deps"
+      "command": "npm install sass-loader@^12.1.0 sass --save-dev --legacy-peer-deps --prefix={{ projectRoot }}"
     }
   ],
   "messages": [
