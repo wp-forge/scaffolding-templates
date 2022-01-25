@@ -20,3 +20,17 @@ jobs:
 
       - name: Lint yaml files
         uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: >
+            {
+              extends: default,
+              rules: {
+                document-start: disable,
+                truthy: disable,
+                line-length: disable,
+                brackets: {
+                  min-spaces-inside: 0,
+                  max-spaces-inside: 1
+                }
+              }
+            }
